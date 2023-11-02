@@ -1,0 +1,23 @@
+p {
+    color: red;
+}
+
+.container-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.info-detail-product {
+    
+    p {
+        color: black;
+
+        & span {
+            color: black;
+            font-weight: bold;
+        }
+    }
+}
