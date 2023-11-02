@@ -16,7 +16,7 @@ export const ItemList = ({ products }) => {
                                     <div className="info-flex">
                                         <p className="precio-del-producto">Precio: {product.price}</p>
                                         <Link to={`/detail/${product.id}`}>
-                                            <button className="boton-añadir-carrito">ver detalle</button>
+                                            <button className="boton-detalle">ver detalle</button>
                                         </Link>
                                     </div>
 
