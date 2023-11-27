@@ -13,7 +13,7 @@ const products = [
         category: 'casacas',
         price: 80,
         stock: 40,
-        description: 'Polo Navigata color Negro',
+        description: 'casaca Navigata color Negro',
         imageUrl: '/assets/casaca2.png'
     },
 

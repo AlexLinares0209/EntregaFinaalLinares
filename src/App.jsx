@@ -6,10 +6,14 @@ import { CartContainer } from './components/CartContainer/CartContainer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import { CartContextProvider } from './components/CartContext/CartContext';
 
 function App() {
 
     return (
+
+        <CartContextProvider>
+
         <Router>  
             <NavBar />
             
@@ -22,6 +26,9 @@ function App() {
                 <Route path='*' element={<Navigate to='/' />} />
             </Routes>
         </Router>
+        
+        </CartContextProvider>
+
     )
 }
 

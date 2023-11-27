@@ -1,23 +1,35 @@
-import { useEffect, useState } from "react"
+import { doc, getDoc, getFirestore } from "firebase/firestore"
+
+import { useContext, useEffect, useState } from "react"
+
 import { useParams } from "react-router-dom"
-import { mFetch } from "../../mFetch"
+
+import { CartContext } from "../CartContext/CartContext"
+import { ItemCounter } from "../ItemCounter/itemCounter"
 
 import './ItemDetailContainer.css'
 
 export const ItemDetailContainer = () => {
 
-    const [product, setProduct] = useState({})
-    const [loading, setLoading] = useState(true)
+    const [ product, setProduct ] = useState({})
+    const [ loading, setLoading ] = useState(true)
     const { pid } = useParams()
 
-
+    const { agregarAlCarrito } = useContext(CartContext)
 
     useEffect(() => {
-        mFetch(pid)
-            .then(resultado => setProduct(resultado))
-            .catch(error => console.log(error))
+        const dbFirestore = getFirestore()
+        const queryDoc = doc(dbFirestore, 'products', pid)
+        getDoc(queryDoc)
+        .then(res => setProduct({ id: res.id, ...res.data() }))
+            .catch(err => console.log(err))
             .finally(() => setLoading(false))
     }, [])
+
+    const onAdd = cant => {
+        agregarAlCarrito( { ...product, cant } )
+    }   
+
 
 
 
@@ -45,6 +57,7 @@ export const ItemDetailContainer = () => {
                                 <p><span>categoría:</span> {product.category}</p>
                                 <p><span>descripción:</span> {product.description}</p>
                                 <p><span>precio:</span> {product.price}</p>
+                                <ItemCounter initial={1} stock={5} onAdd={onAdd} />
                             </div>
 
                         </div>
