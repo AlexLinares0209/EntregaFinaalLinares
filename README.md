@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 
 Nombre del proyecto: Ecommerce de ropa
-Demo:
+Demo: https://65641e76faa039710f46ecae--courageous-kheer-16b130.netlify.app/
 
 | Plugin | README |
 | ------ | ------ |
