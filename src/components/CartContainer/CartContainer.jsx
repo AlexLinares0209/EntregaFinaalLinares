@@ -18,7 +18,6 @@ export const CartContainer = () => {
 
   const { cartList, deleteCart, totalPrice } = useContext(CartContext)
 
-  //console.log(cartList)
 
   const handleOrders = (evt) => {
     evt.preventDefault()

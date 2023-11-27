@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore'
-import { mFetch } from '../../mFetch'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import { ItemList } from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 
@@ -8,8 +7,7 @@ import './ItemListContainer.css'
 
 const ItemListContainer = () => {
 
-    const [products, setProducts] = useState([])
-    const [product, setProduct] = useState({})
+    const [products, setProducts] = useState([])    
     const [loading, setLoading] = useState(true)
 
     const { cid } = useParams()

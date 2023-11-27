@@ -1,5 +1,3 @@
-//import { useCounter } from "../../hooks/useCounter"
-
 import { useState } from "react"
 
 export const useCounter = (initial, stock) => {
